@@ -38,7 +38,7 @@ ENV PATH=$CUDA_HOME/bin:$PATH
 ENV LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 
 # Set working directory
-WORKDIR /InstantSplat
+WORKDIR /GitSplat
 
 # Define CUDA architectures explicitly
 ENV TORCH_CUDA_ARCH_LIST="7.0;7.5;8.0;8.6"
@@ -51,6 +51,10 @@ RUN python3.11 -m pip install --default-timeout=100 --no-cache-dir -r requiremen
 
 # Install PyTorch compiled for CUDA 11.8
 RUN python3.11 -m pip install --no-cache-dir torch==2.1.0+cu118 torchvision==0.16.0+cu118 torchaudio==2.1.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+
+# Download pretrained model (outside of repo)
+RUN mkdir -p mast3r/checkpoints/ && \
+    wget https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth -P mast3r/checkpoints/
 
 # Copy full source code
 COPY . .
@@ -67,4 +71,4 @@ RUN python3.11 -m pip install ./submodules/simple-knn \
 EXPOSE 2052
 
 # Start the app
-CMD ["python3.11", "/InstantSplat/instantsplat_api.py"]
+CMD ["python3.11", "/GitSplat/instantsplat_api.py"]
