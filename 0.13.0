@@ -1,0 +1,6 @@
+Collecting optree
+  Downloading optree-0.14.0-cp312-cp312-win_amd64.whl.metadata (48 kB)
+Requirement already satisfied: typing-extensions>=4.5.0 in c:\users\roots_ai\gaussiansplats\instantsplat\instantsplat_env\lib\site-packages (from optree) (4.12.2)
+Downloading optree-0.14.0-cp312-cp312-win_amd64.whl (299 kB)
+Installing collected packages: optree
+Successfully installed optree-0.14.0

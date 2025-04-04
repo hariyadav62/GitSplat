@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+
+# System and IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Git
+.git/
+.gitignore

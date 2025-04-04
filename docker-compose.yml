@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  instantsplat:
+    image: pytorch/pytorch  # Use your image name here
+    container_name: inst_20250310
+    build: .
+    ports:
+      - "8000:8000"     # Example for FastAPI
+      - "5000:5000"     # Example for Flask
+      - "7860:7860"
+    volumes:
+      - .:/InstantSplat
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CUDA_VISIBLE_DEVICES=0  # GPU Access
+    command: python3.11 instantsplat_api.py

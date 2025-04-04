@@ -1,0 +1,7 @@
+*.pyc
+.vscode
+.idea
+
+data
+output*
+mast3r/checkpoints

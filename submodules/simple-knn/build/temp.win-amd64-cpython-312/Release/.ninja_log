@@ -1,0 +1,6 @@
+# ninja log v5
+10	16314	7610613283646668	C:/Users/Roots_AI/GaussianSplats/InstantSplat/submodules/simple-knn/build/temp.win-amd64-cpython-312/Release/ext.obj	b4661826a8858d50
+37	15709	7610630741599449	C:/Users/Roots_AI/GaussianSplats/InstantSplat/submodules/simple-knn/build/temp.win-amd64-cpython-312/Release/ext.obj	fa62dcc127bfac47
+37	15626	7610643467824230	C:/Users/Roots_AI/GaussianSplats/InstantSplat/submodules/simple-knn/build/temp.win-amd64-cpython-312/Release/ext.obj	a5ca4aa4dbfce5f6
+48	15643	7610643467910775	C:/Users/Roots_AI/GaussianSplats/InstantSplat/submodules/simple-knn/build/temp.win-amd64-cpython-312/Release/simple_knn.obj	3b4ccc343ca993d2
+50	50032	7610643810218568	C:/Users/Roots_AI/GaussianSplats/InstantSplat/submodules/simple-knn/build/temp.win-amd64-cpython-312/Release/spatial.obj	764ad6321ecf227f
