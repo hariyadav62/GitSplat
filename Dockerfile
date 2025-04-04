@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 # Upgrade essential Python packaging tools
-RUN python3.11 -m pip install --no-cache-dir --upgrade pip setuptools wheel packaging
+RUN python3.11 -m pip install --upgrade pip setuptools wheel packaging
 
 # Install CUDA 11.8 Toolkit manually for nvcc and compiler support
 RUN wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda-repo-ubuntu2204-11-8-local_11.8.0-520.61.05-1_amd64.deb && \
@@ -47,20 +47,22 @@ ENV TORCH_CUDA_ARCH_LIST="7.0;7.5;8.0;8.6"
 COPY requirements.txt .
 
 # Install Python dependencies
-RUN python3.11 -m pip install --default-timeout=100 --no-cache-dir -r requirements.txt
+RUN python3.11 -m pip install --default-timeout=100 -r requirements.txt
 
 # Install PyTorch compiled for CUDA 11.8
-RUN python3.11 -m pip install --no-cache-dir torch==2.1.0+cu118 torchvision==0.16.0+cu118 torchaudio==2.1.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+RUN python3.11 -m pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 torchaudio==2.1.0+cu118 --index-url https://download.pytorch.org/whl/cu118
 
 # Download pretrained model (outside of repo)
 RUN mkdir -p mast3r/checkpoints/ && \
     wget https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth -P mast3r/checkpoints/
 
+RUN python3.11 -m pip install icecream
+
 # Copy full source code
 COPY . .
 
 # Ensure setuptools + packaging are wired correctly for cpp_extension
-RUN python3.11 -m pip install --force-reinstall --no-cache-dir setuptools packaging
+RUN python3.11 -m pip install --force-reinstall setuptools packaging
 
 # Build and install CUDA-based submodules
 RUN python3.11 -m pip install ./submodules/simple-knn \
