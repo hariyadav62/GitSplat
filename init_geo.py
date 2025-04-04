@@ -6,9 +6,6 @@ from pathlib import Path
 from time import time
 
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
-from icecream import ic
-ic(torch.cuda.is_available())  # Check if CUDA is available
-ic(torch.cuda.device_count())
 
 from mast3r.model import AsymmetricMASt3R
 from dust3r.image_pairs import make_pairs

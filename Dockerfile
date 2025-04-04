@@ -56,8 +56,6 @@ RUN python3.11 -m pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 torch
 RUN mkdir -p mast3r/checkpoints/ && \
     wget https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth -P mast3r/checkpoints/
 
-RUN python3.11 -m pip install icecream
-
 # Copy full source code
 COPY . .
 
