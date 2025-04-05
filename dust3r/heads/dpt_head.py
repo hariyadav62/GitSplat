@@ -8,7 +8,9 @@
 # the forward function also takes as input a dictionnary img_info with key "height" and "width"
 # for PixelwiseTask, the output will be of dimension B x num_channels x H x W
 # --------------------------------------------------------
-from einops import rearrange
+import sys
+print("hello",sys.executable)
+from einops import rearrange  # Ensure einops is installed and accessible
 from typing import List
 import torch
 import torch.nn as nn
