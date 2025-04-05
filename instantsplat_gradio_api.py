@@ -7,14 +7,9 @@ import sys
 def run_process(cmd):
     print(f"Running command: {' '.join(cmd)}")
     env = os.environ.copy()
-
-    # Ensure the virtual environment's packages are included
-    env["PYTHONPATH"] = os.path.join(os.path.abspath("."), "instantsplat_env", "lib", "python3.11", "site-packages")
-
     # Debugging: Print the environment being used
     print(f"Running command: {' '.join(cmd)}")
     print(f"Using Python: {sys.executable}")
-    print(f"PYTHONPATH: {env['PYTHONPATH']}")
 
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, universal_newlines=True, env=env)
     # process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, universal_newlines=True)
