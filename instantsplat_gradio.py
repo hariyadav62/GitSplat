@@ -26,7 +26,7 @@ def process_scene(input_dir, output_dir, n_views, iterations, progress=gr.Progre
     print(f"Output directory created at: {output_path}")
 
     init_cmd = [
-        "python", "init_geo.py",
+        "python3.11", "init_geo.py",
         "--source_path", input_dir,
         "--model_path", str(output_path),
         "--n_views", str(n_views),
@@ -37,7 +37,7 @@ def process_scene(input_dir, output_dir, n_views, iterations, progress=gr.Progre
     ]
 
     train_cmd = [
-        "python", "train.py",
+        "python3.11", "train.py",
         "-s", input_dir,
         "-m", str(output_path),
         "--n_views", str(n_views),
@@ -47,7 +47,7 @@ def process_scene(input_dir, output_dir, n_views, iterations, progress=gr.Progre
     ]
 
     render_cmd = [
-        "python", "render.py",
+        "python3.11", "render.py",
         "-s", input_dir,
         "-m", str(output_path),
         "--n_views", str(n_views),
